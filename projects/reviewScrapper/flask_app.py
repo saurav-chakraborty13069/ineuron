@@ -1,5 +1,5 @@
 import os
-
+import pandas as pd
 from flask import Flask, render_template, request, jsonify
 from flask_cors import CORS, cross_origin
 import requests
@@ -21,7 +21,7 @@ def index():
     if request.method == 'POST':
         try:
             searchString = request.form['content'].replace(" ", "")
-            flipkart_url = "https://www.flipkart.com/search?q=" + searchString
+            flipkart_url = "https://www.flipkart.com/search?q=" + "".join(searchString.split())
             uClient = uReq(flipkart_url)
             flipkartPage = uClient.read()
             uClient.close()
@@ -37,9 +37,9 @@ def index():
             commentboxes = prod_html.find_all('div', {'class': "_3nrCtb"})
 
             filename = searchString + ".csv"
-            fw = open(filename, "w")
-            headers = "Product, Customer Name, Rating, Heading, Comment \n"
-            fw.write(headers)
+            # fw = open(filename, "w")
+            # headers = "Product, Customer Name, Rating, Heading, Comment \n"
+            # fw.write(headers)
             reviews = []
             for commentbox in commentboxes:
                 try:
@@ -73,6 +73,8 @@ def index():
                 mydict = {"Product": searchString, "Name": name, "Rating": rating, "CommentHead": commentHead,
                           "Comment": custComment}
                 reviews.append(mydict)
+                df = pd.DataFrame(reviews)
+                df.to_csv(filename)
             return render_template('results.html', reviews=reviews[0:(len(reviews) - 1)])
         except Exception as e:
             print('The Exception message is: ', e)
