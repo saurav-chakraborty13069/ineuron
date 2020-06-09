@@ -5,6 +5,9 @@ from flask_cors import CORS, cross_origin
 import requests
 from bs4 import BeautifulSoup as bs
 from urllib.request import urlopen as uReq
+import pandas as pd
+from pymongo import MongoClient
+
 
 app = Flask(__name__)
 
@@ -19,63 +22,74 @@ def homePage():
 @cross_origin()
 def index():
     if request.method == 'POST':
+        searchString = request.form['content'].replace(" ", "")
         try:
-            searchString = request.form['content'].replace(" ", "")
-            flipkart_url = "https://www.flipkart.com/search?q=" + "".join(searchString.split())
-            uClient = uReq(flipkart_url)
-            flipkartPage = uClient.read()
-            uClient.close()
-            flipkart_html = bs(flipkartPage, "html.parser")
-            bigboxes = flipkart_html.findAll("div", {"class": "bhgxx2 col-12-12"})
-            del bigboxes[0:3]
-            box = bigboxes[0]
-            productLink = "https://www.flipkart.com" + box.div.div.div.a['href']
-            prodRes = requests.get(productLink)
-            prodRes.encoding = 'utf-8'
-            prod_html = bs(prodRes.text, "html.parser")
-            print(prod_html)
-            commentboxes = prod_html.find_all('div', {'class': "_3nrCtb"})
+            dbConn = MongoClient("mongodb://localhost:27017/")  # opening a connection to Mongo
+            db = dbConn['reviewscrapper']  # connecting to the database called crawlerDB
+            reviews = db[searchString].find({})  # searching the collection with the name same as the keyword
+            if reviews.count() > 0:
+                return render_template('results.html', reviews=reviews)
+            else:
+                flipkart_url = "https://www.flipkart.com/search?q=" + "".join(searchString.split())
+                uClient = uReq(flipkart_url)
+                flipkartPage = uClient.read()
+                uClient.close()
+                flipkart_html = bs(flipkartPage, "html.parser")
+                bigboxes = flipkart_html.findAll("div", {"class": "bhgxx2 col-12-12"})
+                del bigboxes[0:3]
+                box = bigboxes[0]
+                productLink = "https://www.flipkart.com" + box.div.div.div.a['href']
+                prodRes = requests.get(productLink)
+                prodRes.encoding = 'utf-8'
+                prod_html = bs(prodRes.text, "html.parser")
+                #print(prod_html)
+                commentboxes = prod_html.find_all('div', {'class': "_3nrCtb"})
 
-            filename = searchString + ".csv"
-            # fw = open(filename, "w")
-            # headers = "Product, Customer Name, Rating, Heading, Comment \n"
-            # fw.write(headers)
-            reviews = []
-            for commentbox in commentboxes:
-                try:
-                    # name.encode(encoding='utf-8')
-                    name = commentbox.div.div.find_all('p', {'class': '_3LYOAd _3sxSiS'})[0].text
+                collection = db[searchString]
 
-                except:
-                    name = 'No Name'
+                filename = searchString + ".csv"
+                # fw = open(filename, "w")
+                # headers = "Product, Customer Name, Rating, Heading, Comment \n"
+                # fw.write(headers)
+                reviews = []
+                for commentbox in commentboxes:
+                    try:
+                        # name.encode(encoding='utf-8')
+                        name = commentbox.div.div.find_all('p', {'class': '_3LYOAd _3sxSiS'})[0].text
 
-                try:
-                    # rating.encode(encoding='utf-8')
-                    rating = commentbox.div.div.div.div.text
+                    except:
+                        name = 'No Name'
+
+                    try:
+                        # rating.encode(encoding='utf-8')
+                        rating = commentbox.div.div.div.div.text
 
 
-                except:
-                    rating = 'No Rating'
+                    except:
+                        rating = 'No Rating'
 
-                try:
-                    # commentHead.encode(encoding='utf-8')
-                    commentHead = commentbox.div.div.div.p.text
+                    try:
+                        # commentHead.encode(encoding='utf-8')
+                        commentHead = commentbox.div.div.div.p.text
 
-                except:
-                    commentHead = 'No Comment Heading'
-                try:
-                    comtag = commentbox.div.div.find_all('div', {'class': ''})
-                    # custComment.encode(encoding='utf-8')
-                    custComment = comtag[0].div.text
-                except Exception as e:
-                    print("Exception while creating dictionary: ", e)
+                    except:
+                        commentHead = 'No Comment Heading'
+                    try:
+                        comtag = commentbox.div.div.find_all('div', {'class': ''})
+                        # custComment.encode(encoding='utf-8')
+                        custComment = comtag[0].div.text
+                    except Exception as e:
+                        print("Exception while creating dictionary: ", e)
 
-                mydict = {"Product": searchString, "Name": name, "Rating": rating, "CommentHead": commentHead,
-                          "Comment": custComment}
-                reviews.append(mydict)
-                df = pd.DataFrame(reviews)
-                df.to_csv(filename)
-            return render_template('results.html', reviews=reviews[0:(len(reviews) - 1)])
+                    mydict = {"Product": searchString, "Name": name, "Rating": rating, "CommentHead": commentHead,
+                              "Comment": custComment}
+                    reviews.append(mydict)
+                    df = pd.DataFrame(reviews)
+                    df.to_csv(filename)
+
+                    collection.insert_many(df.to_dict('records'))
+
+                return render_template('results.html', reviews=reviews[0:(len(reviews) - 1)])
         except Exception as e:
             print('The Exception message is: ', e)
             return 'something is wrong'
@@ -86,6 +100,6 @@ def index():
 
 #port = int(os.getenv("PORT"))
 if __name__ == "__main__":
-    #app.run(host='0.0.0.0', port=5000)
+    #app.ru++n(host='0.0.0.0', port=5000)
     #app.run(host='0.0.0.0', port=port)
     app.run(host='127.0.0.1', port=8001, debug=True)
