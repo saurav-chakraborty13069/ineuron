@@ -1,0 +1,20 @@
+2020-07-14/23:44:53		Starting the predict data
+2020-07-14/23:44:53		Starting to load models
+2020-07-14/23:45:29		Starting the predict data
+2020-07-14/23:45:29		Starting to load models
+2020-07-15/08:20:11		Starting the predict data
+2020-07-15/08:20:11		Starting to load models
+2020-07-15/08:20:11		Loading of models completed
+2020-07-15/08:20:11		Coverted Sex to float object
+2020-07-15/08:20:11		Prepared the final dataframe
+2020-07-15/08:20:11		Predicting the result
+2020-07-15/08:20:11		Prediction completed
+2020-07-15/08:20:11		=================================================
+2020-07-15/08:20:56		Starting the predict data
+2020-07-15/08:20:56		Starting to load models
+2020-07-15/08:20:56		Loading of models completed
+2020-07-15/08:20:56		Coverted Sex to float object
+2020-07-15/08:20:56		Prepared the final dataframe
+2020-07-15/08:20:56		Predicting the result
+2020-07-15/08:20:56		Prediction completed
+2020-07-15/08:20:56		=================================================

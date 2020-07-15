@@ -1,0 +1,129 @@
+2020-07-14/23:18:04		Start of Training
+2020-07-14/23:18:04		Getting the data from url
+2020-07-14/23:18:06		Received the data
+2020-07-14/23:18:06		Preprocessing of data completed
+2020-07-14/23:18:06		Splitting of data into train and test completed
+2020-07-14/23:18:06		Training of Decision Tree classifier without best parameters
+2020-07-14/23:18:06		Starting the grid seach
+2020-07-14/23:18:06		Setting up parameters
+2020-07-14/23:18:06		Fitting the Grid search Model
+2020-07-14/23:21:07		Best parameter for max depth is 26
+2020-07-14/23:21:07		Best parameter for min_samples_leaf is 4
+2020-07-14/23:21:07		Best parameter for min_samples_split is 9
+2020-07-14/23:21:07		Best parameter for splitter is random
+2020-07-14/23:21:07		Grid search completed and received the best parameters 
+2020-07-14/23:21:07		Fitting the Decision Tree Classifier with best parameters 
+2020-07-14/23:21:07		true_positive:     152
+2020-07-14/23:21:07		false_positive:    19
+2020-07-14/23:21:07		false_negative:    32
+2020-07-14/23:21:07		true_negative:     65
+2020-07-14/23:21:07		Precision is:  0.8888888888888888
+2020-07-14/23:21:07		Recall is:  0.8260869565217391
+2020-07-14/23:21:07		F1 Score is:  0.8563380281690139
+2020-07-14/23:21:07		AUC is:  0.7794959908361969
+2020-07-14/23:23:37		Training complete
+2020-07-14/23:23:37		====================================
+2020-07-14/23:24:32		Start of Training
+2020-07-14/23:24:32		Getting the data from url
+2020-07-14/23:24:33		Received the data
+2020-07-14/23:24:34		Preprocessing of data completed
+2020-07-14/23:24:34		Splitting of data into train and test completed
+2020-07-14/23:24:34		Training of Decision Tree classifier without best parameters
+2020-07-14/23:24:34		Starting the grid seach
+2020-07-14/23:24:34		Setting up parameters
+2020-07-14/23:24:34		Fitting the Grid search Model
+2020-07-14/23:27:33		Best parameter for max depth is 9
+2020-07-14/23:27:33		Best parameter for min_samples_leaf is 2
+2020-07-14/23:27:33		Best parameter for min_samples_split is 8
+2020-07-14/23:27:33		Best parameter for splitter is random
+2020-07-14/23:27:33		Grid search completed and received the best parameters 
+2020-07-14/23:27:33		Fitting the Decision Tree Classifier with best parameters 
+2020-07-14/23:27:33		true_positive:     144
+2020-07-14/23:27:33		false_positive:    27
+2020-07-14/23:27:33		false_negative:    27
+2020-07-14/23:27:33		true_negative:     70
+2020-07-14/23:27:33		Precision is:  0.8421052631578947
+2020-07-14/23:27:33		Recall is:  0.8421052631578947
+2020-07-14/23:27:33		F1 Score is:  0.8421052631578947
+2020-07-14/23:27:33		AUC is:  0.7818773738469886
+2020-07-14/23:41:36		Training complete
+2020-07-14/23:41:36		Saving the models at location
+2020-07-14/23:41:36		====================================
+2020-07-14/23:42:50		Start of Training
+2020-07-14/23:42:50		Getting the data from url
+2020-07-14/23:42:51		Received the data
+2020-07-14/23:42:51		Preprocessing of data completed
+2020-07-14/23:42:51		Splitting of data into train and test completed
+2020-07-14/23:42:51		Training of Decision Tree classifier without best parameters
+2020-07-14/23:42:51		Starting the grid seach
+2020-07-14/23:42:51		Setting up parameters
+2020-07-14/23:42:51		Fitting the Grid search Model
+2020-07-14/23:45:32		Best parameter for max depth is 10
+2020-07-14/23:45:32		Best parameter for min_samples_leaf is 1
+2020-07-14/23:45:32		Best parameter for min_samples_split is 9
+2020-07-14/23:45:32		Best parameter for splitter is random
+2020-07-14/23:45:32		Grid search completed and received the best parameters 
+2020-07-14/23:45:32		Fitting the Decision Tree Classifier with best parameters 
+2020-07-14/23:45:32		true_positive:     143
+2020-07-14/23:45:32		false_positive:    28
+2020-07-14/23:45:32		false_negative:    30
+2020-07-14/23:45:32		true_negative:     67
+2020-07-14/23:45:32		Precision is:  0.8362573099415205
+2020-07-14/23:45:32		Recall is:  0.8265895953757225
+2020-07-14/23:45:32		F1 Score is:  0.8313953488372092
+2020-07-14/23:45:32		AUC is:  0.7634894797130283
+2020-07-14/23:45:32		Training complete
+2020-07-14/23:45:32		Saving the models at location
+2020-07-14/23:45:32		====================================
+2020-07-15/08:21:13		Start of Training
+2020-07-15/08:21:13		Getting the data from url
+2020-07-15/08:21:14		Received the data
+2020-07-15/08:21:14		Preprocessing of data completed
+2020-07-15/08:21:14		Splitting of data into train and test completed
+2020-07-15/08:21:14		Training of Decision Tree classifier without best parameters
+2020-07-15/08:21:14		Starting the grid seach
+2020-07-15/08:21:14		Setting up parameters
+2020-07-15/08:21:14		Fitting the Grid search Model
+2020-07-15/08:24:27		Best parameter for max depth is 5
+2020-07-15/08:24:27		Best parameter for min_samples_leaf is 1
+2020-07-15/08:24:27		Best parameter for min_samples_split is 3
+2020-07-15/08:24:27		Best parameter for splitter is random
+2020-07-15/08:24:27		Grid search completed and received the best parameters 
+2020-07-15/08:24:27		Fitting the Decision Tree Classifier with best parameters 
+2020-07-15/08:24:27		true_positive:     158
+2020-07-15/08:24:27		false_positive:    13
+2020-07-15/08:24:27		false_negative:    37
+2020-07-15/08:24:27		true_negative:     60
+2020-07-15/08:24:27		Precision is:  0.9239766081871345
+2020-07-15/08:24:27		Recall is:  0.8102564102564103
+2020-07-15/08:24:27		F1 Score is:  0.8633879781420766
+2020-07-15/08:24:27		AUC is:  0.7712666546090312
+2020-07-15/08:24:27		Training complete
+2020-07-15/08:24:27		Saving the models at location
+2020-07-15/08:24:27		====================================
+2020-07-15/08:21:18		Start of Training
+2020-07-15/08:21:18		Getting the data from url
+2020-07-15/08:21:19		Received the data
+2020-07-15/08:21:19		Preprocessing of data completed
+2020-07-15/08:21:19		Splitting of data into train and test completed
+2020-07-15/08:21:19		Training of Decision Tree classifier without best parameters
+2020-07-15/08:21:19		Starting the grid seach
+2020-07-15/08:21:19		Setting up parameters
+2020-07-15/08:21:19		Fitting the Grid search Model
+2020-07-15/08:26:32		Best parameter for max depth is 7
+2020-07-15/08:26:32		Best parameter for min_samples_leaf is 2
+2020-07-15/08:26:32		Best parameter for min_samples_split is 6
+2020-07-15/08:26:32		Best parameter for splitter is random
+2020-07-15/08:26:32		Grid search completed and received the best parameters 
+2020-07-15/08:26:32		Fitting the Decision Tree Classifier with best parameters 
+2020-07-15/08:26:32		true_positive:     151
+2020-07-15/08:26:32		false_positive:    20
+2020-07-15/08:26:32		false_negative:    31
+2020-07-15/08:26:32		true_negative:     66
+2020-07-15/08:26:32		Precision is:  0.8830409356725146
+2020-07-15/08:26:32		Recall is:  0.8296703296703297
+2020-07-15/08:26:32		F1 Score is:  0.8555240793201134
+2020-07-15/08:26:32		AUC is:  0.7817266534032676
+2020-07-15/08:26:32		Training complete
+2020-07-15/08:26:32		Saving the models at location
+2020-07-15/08:26:32		====================================
